@@ -22,21 +22,21 @@ int main() {
     cin >> v >> e;
     
     vector<vector<int>> adj(v);
+    int x, y;
     for(int i = 0; i < e; i++) {
-        int u, v;
-        cin >> u >> v;
+        cin >> x >> y;
         
         // directed graph
-        adj[u].push_back(v);
-        // adj[v].push_back(u);
+        adj[x].push_back(y);
+        // adj[y].push_back(x);
     }
     
     vector<bool> vis(v + 1, false);
     vector<bool> recStack(v + 1, false);
     for(int i = 1; i <= v; i++) {
         if(isCyclic(i, adj, vis, recStack))
-            return true;
+            cout << "true";
     }
     
-    return false;
+    cout << "false";
 }
