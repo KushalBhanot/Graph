@@ -1,10 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define MAX 1005;
-vector<int> adj[MAX];
-
-void bfs(int start, vector<bool>& vis) {
+void bfs(int start, vector<vector<int>>& adj, vector<bool>& vis) {
     queue<int> q;
     q.push(start);
     
@@ -31,16 +28,19 @@ int main() {
     int v, e;
     cin >> v >> e;
     
+    vector<vector<int>> adj(v);
     for(int i = 0; i < e; i++) {
         int u, v;
+        cin >> u >> v;
         
-        // directed graph
+        // undirected graph
         adj[u].push_back(v);
-        // adj[v].push_back(u);
+        adj[v].push_back(u);
     }
     
-    int start;
+    int start = 0;
     cin >> start;
-    vector<bool> vis(v + 1, false);
-    bfs(start, vis);
+    
+    vector<bool> vis(v, false);
+    bfs(start, adj, vis);
 }
