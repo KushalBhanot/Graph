@@ -9,7 +9,7 @@ void dfs(int start, vector<vector<int>>& adj, vector<bool>& vis) {
             dfs(next_node, adj, vis);
     }
     
-    cout << start + 1 << " ";
+    cout << start << " ";
 }
 
 int main() {
